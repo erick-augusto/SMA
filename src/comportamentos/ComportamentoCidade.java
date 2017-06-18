@@ -265,7 +265,18 @@ public class ComportamentoCidade extends CyclicBehaviour {
     }
     
     public void geraEstatisticas(){
-        
+        int i,j;
+        int num_sucetivel;
+        int num_infectado;
+        int num_quarentena;
+        int num_nao_quarentena;
+        int num_imune;
+        int num_morto;
+        for(i=0;i<200;i++){
+            for(j=0;j<500;j++){
+                
+            }
+        }
     }
 
     /*private void verificarEfeitosAlimentacao() {
