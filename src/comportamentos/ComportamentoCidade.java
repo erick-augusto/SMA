@@ -253,6 +253,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
             myAgent.doDelete();
             System.out.println("Agente Cidade deletado!");
         }
+        geraEstatisticas();
         /*if(index == 200){
             for(h=0; h<Cidade.tamanhoMapaH; h++){
                 for(w=0; w<Cidade.tamanhoMapaW; w++){
@@ -261,6 +262,16 @@ public class ComportamentoCidade extends CyclicBehaviour {
                 System.out.println("");
             }
         }*/
+    }
+    
+    public void geraEstatisticas(){
+        int i;
+        int num_sucetivel;
+        int num_infectado;
+        int num_quarentena;
+        int num_nao_quarentena;
+        int num_imunes;
+        int num_mortos;
     }
 
     /*private void verificarEfeitosAlimentacao() {
