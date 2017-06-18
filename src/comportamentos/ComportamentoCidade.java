@@ -273,6 +273,12 @@ public class ComportamentoCidade extends CyclicBehaviour {
         int num_imune;
         int num_morto;
         for(i=0;i<200;i++){
+            num_sucetivel = 0;
+            num_infectado = 0;
+            num_quarentena = 0;
+            num_nao_quarentena = 0;
+            num_imune = 0;
+            num_morto = 0;
             for(j=0;j<500;j++){
                 if(relatorio[i][j] == "S"){
                     num_sucetivel++;
