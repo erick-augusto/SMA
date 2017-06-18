@@ -265,13 +265,30 @@ public class ComportamentoCidade extends CyclicBehaviour {
     }
     
     public void geraEstatisticas(){
-        int i;
+        int i,j;
         int num_sucetivel;
         int num_infectado;
         int num_quarentena;
         int num_nao_quarentena;
         int num_imunes;
         int num_mortos;
+        for(i=0;i<200;i++){
+            for(j=0;j<500;j++){
+                if(relatorio[i][j] == "S"){
+                    
+                } else if(relatorio[i][j] == "I"){
+                    
+                } else if(relatorio[i][j] == "Q"){
+                    
+                } else if(relatorio[i][j] == "NQ"){
+                    
+                } else if(relatorio[i][j] == "M"){
+                    
+                } else{
+                    
+                }
+            }
+        }
     }
 
     /*private void verificarEfeitosAlimentacao() {
