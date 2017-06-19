@@ -302,6 +302,16 @@ public class ComportamentoCidade extends CyclicBehaviour {
             resultados[i][4] = num_imune;
             resultados[i][5] = num_morto;
         }
+        for(i=0;i<200;i++){
+            System.out.println("Iteração "+i+": ");
+            System.out.print("Sucetível: "+resultados[i][0]+" - ");
+            System.out.print("Infectado: "+resultados[i][1]+" - ");
+            System.out.print("Quarentena: "+resultados[i][2]+" - ");
+            System.out.print("Não Quarentena: "+resultados[i][3]+" - ");
+            System.out.print("Imune: "+resultados[i][4]+" - ");
+            System.out.print("Morto: "+resultados[i][5]+";");
+            System.out.println("");
+        }
     }
 
     /*private void verificarEfeitosAlimentacao() {
