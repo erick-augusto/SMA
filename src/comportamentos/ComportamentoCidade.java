@@ -266,7 +266,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
     
     public void geraEstatisticas(){
         int i,j;
-        int resultados[][] = new int [6][500];
+        int resultados[][] = new int [200][6];
         int num_sucetivel;
         int num_infectado;
         int num_quarentena;
@@ -295,6 +295,12 @@ public class ComportamentoCidade extends CyclicBehaviour {
                     num_morto++;
                 }
             }
+            resultados[i][0] = num_sucetivel;
+            resultados[i][1] = num_infectado;
+            resultados[i][2] = num_quarentena;
+            resultados[i][3] = num_nao_quarentena;
+            resultados[i][4] = num_imune;
+            resultados[i][5] = num_morto;
         }
     }
 
