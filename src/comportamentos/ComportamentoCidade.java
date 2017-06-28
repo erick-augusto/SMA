@@ -216,6 +216,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
         int w = 0;
         int cont = 0;
         if(index >= 200){
+            geraEstatisticas();
             for(PosicaoPP posicao : posicoes){
                 System.out.println("Agente "+posicao.pp.getName()+" deletado!");
                 posicao.pp.doDelete();
@@ -226,7 +227,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
             myAgent.doDelete();
             System.out.println("Agente Cidade deletado!");
         }
-        geraEstatisticas();
     }
     
     public void geraEstatisticas(){
