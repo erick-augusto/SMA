@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package comportamentos;
 
 import jade.core.AID;
@@ -59,18 +55,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
         enviaMensagens();
         recebeMensagens();
         tomaDecisao();
-        /*
-         for (int y = 0; y < Selva.mapa.length; y++) {
-         for (int x = 0; x < Selva.mapa[0].length; x++) {
-         if (Selva.mapa[y][x] != null
-         && (Selva.mapa[y][x].posX != x
-         || Selva.mapa[y][x].posY != y)) {
-         System.out.println("inconsistencia de posicao");
-
-         }
-         }
-         }
-         */
 
         try {
             int timeToSleep = (int) (400L - System.currentTimeMillis() + time);
@@ -82,9 +66,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
         } catch (InterruptedException ex) {
             Logger.getLogger(ComportamentoCidade.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         Cidade.numTurno++;
-
     }
 
     //Ok
