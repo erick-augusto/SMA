@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package comportamentos;
 
 import jade.core.AID;
@@ -59,19 +55,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
         enviaMensagens();
         recebeMensagens();
         tomaDecisao();
-        /*
-         for (int y = 0; y < Selva.mapa.length; y++) {
-         for (int x = 0; x < Selva.mapa[0].length; x++) {
-         if (Selva.mapa[y][x] != null
-         && (Selva.mapa[y][x].posX != x
-         || Selva.mapa[y][x].posY != y)) {
-         System.out.println("inconsistencia de posicao");
-
-         }
-         }
-         }
-         */
-
         try {
             int timeToSleep = (int) (400L - System.currentTimeMillis() + time);
 
@@ -82,9 +65,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
         } catch (InterruptedException ex) {
             Logger.getLogger(ComportamentoCidade.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         Cidade.numTurno++;
-
     }
 
     //Ok
@@ -180,16 +161,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
                         //novoMapa[y][x] = Selva.mapa[y][x];
                         System.out.println("10 - DEBUG HERE");
                         decisoes.put(sender, Boolean.FALSE);
-                    } else if (Cidade.mapa[novoY][novoX] == null /*|| (relacao = Cidade.mapa[y][x].relacaoAgentes.
-                             get(Cidade.mapa[novoY][novoX].getClass().getName())) != null
-                             && relacao == Sociedade.CACAR*/) {
-                        /*if (Cidade.mapa[novoY][novoX] != null) {
-                         //Cidade.mapa[y][x].ultimoTurnoComeu = Cidade.numTurno;
-                         //Cidade.mapa[y][x].numComeu++;
-                         //decisoes.remove(Cidade.mapa[novoY][novoX].getAID());
-                         //Selva.removePresaPredador(Selva.mapa[novoY][novoX]);
-                         }*/
-
+                    } else if (Cidade.mapa[novoY][novoX] == null) {
                         Cidade.mapa[novoY][novoX] = Cidade.mapa[y][x];
                         Cidade.mapa[y][x] = null;
                         pp.posX = novoX;
@@ -204,7 +176,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
                     Cidade.removePessoa(Cidade.mapa[y][x]);
                     mapa[y][x] = null;
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("2 - DEBUG HERE");
@@ -232,7 +203,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
                 i++;
             }
             //System.out.println("");
-            System.out.println("index: " + index);
+            //System.out.println("index: " + index);
         }
         index++;
         for (Sociedade morto : mortos) {
@@ -243,8 +214,9 @@ public class ComportamentoCidade extends CyclicBehaviour {
         int w = 0;
         int cont = 0;
         if(index >= 200){
+            geraEstatisticas();
             for(PosicaoPP posicao : posicoes){
-                System.out.println("Agente "+posicao.pp.getName()+" deletado!");
+                //System.out.println("Agente "+posicao.pp.getName()+" deletado!");
                 posicao.pp.doDelete();
                 cont++;
             } 
@@ -253,15 +225,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
             myAgent.doDelete();
             System.out.println("Agente Cidade deletado!");
         }
-        geraEstatisticas();
-        /*if(index == 200){
-            for(h=0; h<Cidade.tamanhoMapaH; h++){
-                for(w=0; w<Cidade.tamanhoMapaW; w++){
-                    System.out.print(mapa[h][w]+" ");
-                }
-                System.out.println("");
-            }
-        }*/
     }
     
     public void geraEstatisticas(){
@@ -313,52 +276,4 @@ public class ComportamentoCidade extends CyclicBehaviour {
             System.out.println("");
         }
     }
-
-    /*private void verificarEfeitosAlimentacao() {
-     Collection<PosicaoPP> posicoes = Selva.listaPosicoes.values();
-     LinkedList<PresaPredador> agentesARemover = new LinkedList<PresaPredador>();
-     LinkedList<PresaPredador> agentesAAdicionar = new LinkedList<PresaPredador>();
-     for (PosicaoPP ppp : posicoes) {
-     PresaPredador p = ppp.pp;
-     if (Selva.numTurno - p.ultimoTurnoComeu > p.resistencia) {
-     Selva.mapa[ppp.posY][ppp.posX] = null;
-     agentesARemover.add(p);
-     System.out.printf("%s morreu de fome!\n", p.getLocalName());
-     }
-     if (p.numComeu > p.comidaParaReproducao) {
-
-     p.numComeu = 0;
-     int x, y;
-     do {
-     x = Selva.rnd.nextInt(mapa[0].length);
-     y = Selva.rnd.nextInt(mapa.length);
-     //System.out.println("oops");
-     } while (mapa[y][x] != null);
-     try {
-     agentesAAdicionar.add((PresaPredador) (p.getClass().getConstructors()[0].
-     newInstance(p.name + "_filho" + (++p.numFilhos), x, y)));
-     } catch (InstantiationException ex) {
-     Logger.getLogger(ComportamentoSelva.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (IllegalAccessException ex) {
-     Logger.getLogger(ComportamentoSelva.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (IllegalArgumentException ex) {
-     Logger.getLogger(ComportamentoSelva.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (InvocationTargetException ex) {
-     Logger.getLogger(ComportamentoSelva.class.getName()).log(Level.SEVERE, null, ex);
-     }
-
-
-     System.out.printf("%s teve um filho!\n", p.name);
-     }
-     }
-     for (PresaPredador p : agentesARemover) {
-     decisoes.remove(p.getAID());
-     Selva.removePresaPredador(p);
-     }
-
-     for (PresaPredador p : agentesAAdicionar) {
-     ((Selva) myAgent).adicionaPresaPredador(p);
-     }
-
-     }*/
 }
