@@ -162,16 +162,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
                         //novoMapa[y][x] = Selva.mapa[y][x];
                         System.out.println("10 - DEBUG HERE");
                         decisoes.put(sender, Boolean.FALSE);
-                    } else if (Cidade.mapa[novoY][novoX] == null /*|| (relacao = Cidade.mapa[y][x].relacaoAgentes.
-                             get(Cidade.mapa[novoY][novoX].getClass().getName())) != null
-                             && relacao == Sociedade.CACAR*/) {
-                        /*if (Cidade.mapa[novoY][novoX] != null) {
-                         //Cidade.mapa[y][x].ultimoTurnoComeu = Cidade.numTurno;
-                         //Cidade.mapa[y][x].numComeu++;
-                         //decisoes.remove(Cidade.mapa[novoY][novoX].getAID());
-                         //Selva.removePresaPredador(Selva.mapa[novoY][novoX]);
-                         }*/
-
+                    } else if (Cidade.mapa[novoY][novoX] == null) {
                         Cidade.mapa[novoY][novoX] = Cidade.mapa[y][x];
                         Cidade.mapa[y][x] = null;
                         pp.posX = novoX;
