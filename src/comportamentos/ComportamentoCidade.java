@@ -227,14 +227,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
             System.out.println("Agente Cidade deletado!");
         }
         geraEstatisticas();
-        /*if(index == 200){
-            for(h=0; h<Cidade.tamanhoMapaH; h++){
-                for(w=0; w<Cidade.tamanhoMapaW; w++){
-                    System.out.print(mapa[h][w]+" ");
-                }
-                System.out.println("");
-            }
-        }*/
     }
     
     public void geraEstatisticas(){
