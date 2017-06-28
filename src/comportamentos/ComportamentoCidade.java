@@ -55,7 +55,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
         enviaMensagens();
         recebeMensagens();
         tomaDecisao();
-
         try {
             int timeToSleep = (int) (400L - System.currentTimeMillis() + time);
 
@@ -177,7 +176,6 @@ public class ComportamentoCidade extends CyclicBehaviour {
                     Cidade.removePessoa(Cidade.mapa[y][x]);
                     mapa[y][x] = null;
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("2 - DEBUG HERE");
@@ -205,7 +203,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
                 i++;
             }
             //System.out.println("");
-            System.out.println("index: " + index);
+            //System.out.println("index: " + index);
         }
         index++;
         for (Sociedade morto : mortos) {
@@ -218,7 +216,7 @@ public class ComportamentoCidade extends CyclicBehaviour {
         if(index >= 200){
             geraEstatisticas();
             for(PosicaoPP posicao : posicoes){
-                System.out.println("Agente "+posicao.pp.getName()+" deletado!");
+                //System.out.println("Agente "+posicao.pp.getName()+" deletado!");
                 posicao.pp.doDelete();
                 cont++;
             } 
