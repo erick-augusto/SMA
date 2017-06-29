@@ -117,7 +117,7 @@ public class Cidade extends Agent {
 
 
     private static void createAndShowGUI() {
-        JFrame f = new JFrame("SMA: Modelo Presa-Predador");
+        JFrame f = new JFrame("SMA: Modelo Epidemia");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(500, 500);
         f.setVisible(true);
