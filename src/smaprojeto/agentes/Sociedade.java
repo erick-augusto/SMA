@@ -45,23 +45,14 @@ public class Sociedade extends Agent implements Serializable {
     @Override
     protected void setup() {
         addBehaviour(behavior);
-        //Object[] args = getArguments();
-        //this.posX = (Integer)args[0];
-        //this.posY = (Integer)args[1];
-        //this.distancia_visao = (Integer)args[2];
     }
 
-    public Sociedade(String name, int distancia_visao, int posX, int posY, String status, String path//,
-            /*String[] agentesParaFugir, String[] agentesParaCacar, int resistencia, int comidaParaReproducao*/) {
-
-        this(name, distancia_visao, posX, posY, status, path,
-                /*agentesParaFugir, agentesParaCacar, resistencia,
-                comidaParaReproducao,*/ null);
+    public Sociedade(String name, int distancia_visao, int posX, int posY, String status, String path) {
+        this(name, distancia_visao, posX, posY, status, path, null);
     }
 
     public Sociedade(String name, int distancia_visao, int posX, int posY, String status, String path,
-            /*String[] agentesParaFugir, String[] agentesParaCacar, int resistencia,
-            int comidaParaReproducao,*/ Class<? extends Behaviour> behaviorClass) {
+            Class<? extends Behaviour> behaviorClass) {
         this.name = name;
         this.distancia_visao = distancia_visao;
         this.posX = posX;
