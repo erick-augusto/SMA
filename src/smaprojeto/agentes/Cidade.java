@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package smaprojeto.agentes;
 
 import comportamentos.ComportamentoCidade;
@@ -77,8 +73,6 @@ public class Cidade extends Agent {
             System.out.println("Infectado"+i+" x:"+x+" y:"+y);
         }
         
-        //addAgent(getContainerController(), "Sniffer", "jade.tools.sniffer.Sniffer",
-        //        new Object[]{"Miau", ";", "Auau", ";", "Selva"});
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
@@ -100,7 +94,6 @@ public class Cidade extends Agent {
         SMAProjeto.addExistingAgent(containerController, p.name,
                 mapa[p.posY][p.posX]);
         listaPosicoes.put(p.getLocalName(), posicaoPP);
-
     }
 
     //Esta função NÃO retira a presapredador do mapa.
@@ -111,10 +104,7 @@ public class Cidade extends Agent {
         }
         listaPosicoes.remove(p.getLocalName());
         p.doDelete();
-
-
     }
-
 
     private static void createAndShowGUI() {
         JFrame f = new JFrame("SMA: Modelo Epidemia");
