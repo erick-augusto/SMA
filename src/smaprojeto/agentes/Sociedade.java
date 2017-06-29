@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package smaprojeto.agentes;
 
 import comportamentos.ComportamentoSociedade;
@@ -23,8 +19,6 @@ import javax.imageio.ImageIO;
  */
 public class Sociedade extends Agent implements Serializable {
 
-    //public static final boolean FUGIR = false;
-    //public static final boolean CACAR = true;
     public static final HashMap<String, Image> avatars = new HashMap<String, Image>();
     private Image avatar;
     public String mapaVisao[][];
@@ -32,14 +26,8 @@ public class Sociedade extends Agent implements Serializable {
     public int posX, posY;
     public String name;
     public String status;
-    //public String path;
     public HashMap<String, Boolean> relacaoAgentes;
     public int turnoAtual;
-    //public int ultimoTurnoComeu;
-    //public int numComeu;
-    //public int resistencia;
-    //public int comidaParaReproducao;
-    //public int numFilhos;
     protected Behaviour behavior;
 
     @Override
@@ -58,15 +46,6 @@ public class Sociedade extends Agent implements Serializable {
         this.posX = posX;
         this.posY = posY;
         this.status = status;
-        //this.path = path;
-        
-        //relacaoAgentes = new HashMap<String, Boolean>();
-        /*for (String agente : agentesParaFugir) {
-            relacaoAgentes.put(agente, FUGIR);
-        }
-        for (String agente : agentesParaCacar) {
-            relacaoAgentes.put(agente, CACAR);
-        }*/
 
         mapaVisao = new String[distancia_visao * 2 + 1][distancia_visao * 2 + 1];
         avatar = avatars.get(path);
@@ -79,14 +58,8 @@ public class Sociedade extends Agent implements Serializable {
             }
         }
         turnoAtual = 0;
-        //ultimoTurnoComeu = 0;
-        //numComeu = 0;
-        //this.resistencia = resistencia;
-        //this.comidaParaReproducao = comidaParaReproducao;
-        //numFilhos = 0;
         if (behaviorClass == null) {
             behaviorClass = ComportamentoSociedade.class;
-
         }
         try {
             behavior = (Behaviour) behaviorClass.getConstructors()[0].newInstance(this);
@@ -124,29 +97,4 @@ public class Sociedade extends Agent implements Serializable {
     public void setStatus(String status){
         this.status = status;
     }
-    
-    /*public void setPath(String path){
-        this.path = path;
-        avatar = avatars.get(path);
-        if (avatar != null) {
-            try {
-                avatar = ImageIO.read(new File(path));
-                avatars.put(path, avatar);
-            } catch (IOException ex) {
-                Logger.getLogger(Sociedade.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    
-    public void getPath(String path){
-        avatar = avatars.get(path);
-        if (avatar != null) {
-            try {
-                avatar = ImageIO.read(new File(path));
-                avatars.put(path, avatar);
-            } catch (IOException ex) {
-                Logger.getLogger(Sociedade.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }*/
 }
